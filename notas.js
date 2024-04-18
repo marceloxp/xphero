@@ -21,7 +21,7 @@ class NotasAnimadas {
             }
         };
 
-        return gsap.to(nota, { ...options, startTime: startTime });
+        return gsap.to(nota, options, startTime);
     }
 
     criarNotasComStartTimes() {
