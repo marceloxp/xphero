@@ -1,38 +1,32 @@
 class NotasAnimadas {
     constructor() {
-        this.startTimes = [0, 0.7];
+        this.startTimes = [0.5, 1, 1.5];
+        this.duration = 4;
         this.timeline = gsap.timeline();
         this.timeline.pause();
         this.gameContainer = document.getElementById('game-container');
+        this.criarAnimacao();
     }
 
-    criarAnimacao(startTime) {
-        const nota = document.createElement('div');
-        nota.classList.add('nota');
-        this.gameContainer.appendChild(nota);
-
-        const options = {
-            duration: 5, // Duração da animação em segundos
-            y: this.gameContainer.offsetHeight + 50, // Altura do contêiner menos o padding (20px em cima e 20px em baixo)
-            ease: "none", // Tipo de easing (linear)
-            onComplete: () => {
-                // Remover a nota após a animação ser concluída
-                nota.remove();
+    criarAnimacao() {
+        const y1 = this.gameContainer.offsetHeight + 50;
+        const self = this;
+        const animacao = gsap.to('.nota div', {
+            duration: this.duration,
+            y: y1,
+            ease: 'none',
+            stagger: function (index, target, list) {
+                return self.startTimes[index];
             }
-        };
-
-        return gsap.to(nota, options, startTime);
-    }
-
-    criarNotasComStartTimes() {
-        this.startTimes.forEach((startTime) => {
-            this.timeline.add(this.criarAnimacao(startTime), startTime);
         });
+        this.timeline.add(animacao);
     }
 
-    iniciarAnimacao() {
+    onClick() {
+
+    }
+
+    play() {
         this.timeline.play();
     }
 }
-
-const notasAnimadas = new NotasAnimadas();

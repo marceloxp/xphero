@@ -14,10 +14,19 @@ html {
     position: relative;
 }
 
-.nota {
+.nota div {
     width: 50px;
     height: 50px;
     background-color: cyan;
     position: absolute;
     top: -50px;
+}
+
+#fire {
+    /* width: 100%; */
+    height: 130px;
+    background-color: brown;
+    position: fixed;
+    bottom: 70px;
+    opacity: 0.35;
 }
