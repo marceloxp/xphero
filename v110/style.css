@@ -14,7 +14,7 @@ html {
     position: relative;
 }
 
-.nota div {
+.nota {
     width: 50px;
     height: 50px;
     background-color: cyan;
