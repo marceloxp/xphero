@@ -22,6 +22,14 @@ html {
     top: -50px;
 }
 
+.nota.not {
+    background-color: red;
+}
+
+.nota.ok {
+    background-color: green;
+}
+
 #fire {
     /* width: 100%; */
     height: 130px;

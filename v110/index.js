@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     ajustarTamanhoContainer();
-    const notasAnimadas = new NotasAnimadas();
+    window.notasAnimadas = new NotasAnimadas();
     setTimeout(() => {
         notasAnimadas.play();
     }, 1000);
