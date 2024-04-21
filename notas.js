@@ -13,12 +13,6 @@ class NotasAnimadas {
         this.onGameKeyPress();
     }
 
-    // play() {
-    //     const animateNext = this.animateNext.bind(this);
-    //     this.ticker = new TimeTicker(this.startTimes, animateNext);
-    //     this.active = true;
-    // }
-
     createDivNota() {
         const div = document.createElement('div');
         const uniqueId = generateUniqueId();
