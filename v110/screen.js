@@ -6,7 +6,12 @@ function ajustarTamanhoContainer() {
     const panelHeight = windowHeight - (2 * 20) + 'px';
     gameContainer.style.width = panelWidth;
     gameContainer.style.height = panelHeight;
-
     const fireElement = document.getElementById('fire');
     fireElement.style.width = panelWidth;
 }
+
+window.addEventListener('resize', ajustarTamanhoContainer);
+
+window.addEventListener('load', () => {
+    ajustarTamanhoContainer();
+})

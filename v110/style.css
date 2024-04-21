@@ -30,6 +30,18 @@ html {
     background-color: green;
 }
 
+.nota.nota1 {
+    left: 30px;
+}
+
+.nota.nota2 {
+    left: 90px;
+}
+
+.nota.nota3 {
+    left: 150px;
+}
+
 #fire {
     /* width: 100%; */
     height: 130px;

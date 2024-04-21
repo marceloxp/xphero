@@ -1,10 +1,11 @@
 class NotasAnimadas {
-    constructor() {
+    constructor(index, keyCode) {
+        this.keyCode = keyCode;
+        this.index = index;
         this.init();
     }
 
     init() {
-        this.startTimes = [0.5, 2, 2.7, 3.5, 3.9, 4.1, 5.3, 6.1, 6.6, 7];
         this.active = false;
         this.actives = [];
         this.duration = 3;
@@ -12,22 +13,26 @@ class NotasAnimadas {
         this.onGameKeyPress();
     }
 
-    play() {
-        const animateNext = this.animateNext.bind(this);
-        this.ticker = new TimeTicker(this.startTimes, animateNext);
-        this.active = true;
-    }
+    // play() {
+    //     const animateNext = this.animateNext.bind(this);
+    //     this.ticker = new TimeTicker(this.startTimes, animateNext);
+    //     this.active = true;
+    // }
 
     createDivNota() {
         const div = document.createElement('div');
         const uniqueId = generateUniqueId();
         div.classList.add('nota');
+        div.classList.add(`nota${this.index}`);
         div.setAttribute('id', uniqueId);
         this.gameContainer.appendChild(div);
         return div;
     }
 
     animateNext() {
+        if (!this.active) {
+            this.active = true;
+        }
         const y = this.gameContainer.offsetHeight + 50;
         const div = this.createDivNota();
         const id = div.id;
@@ -60,7 +65,7 @@ class NotasAnimadas {
                 return;
             }
 
-            if (event.code === 'KeyA') {
+            if (event.code === this.keyCode) {
                 this.checkAnimationProgress();
             }
         })
